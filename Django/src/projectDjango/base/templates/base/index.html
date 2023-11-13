@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista pendientes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            box-shadow: 10px 10px 30px 10px rgba(0,0,0,.1);
+            margin: 15px;
+            color: #000;
+            font-size: 10pt;
+            font-family: verdana;
+            font-weight: normal;
+            hyphens: auto;
+            width: 80ex;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+            word-wrap: break-word;
+            text-align: justify;
+          }
+        input[type='submit'] {
+            background: black;
+            border-radius: 5px;
+            color: white;
+            }
+        a {
+            background-color: #f1f1f1;
+            text-decoration: none;
+            margin-right: 2px;
+            color: #000;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+</body>
+</html>

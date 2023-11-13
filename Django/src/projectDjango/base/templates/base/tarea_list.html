@@ -1,0 +1,48 @@
+{% extends "base/index.html" %}
+{% block content %}
+
+<div class="supNav" style="padding-bottom: 10px">
+    <div>
+        <h4 style="margin:0">
+            Hola, {{request.user|title}}
+        </h4>
+        <h3 style="margin:0">Tienes {{count}} tarea{{count|pluralize}} incompleta{{count|pluralize}}</h3>
+    </div>
+</div>
+
+{% if request.user.is_authenticated %}
+    <a href="{% url 'logout' %}">Salir</a>
+{% else %}
+    <a href="{% url 'login' %}">Ingresar</a>
+{% endif %}
+<hr>
+<a href="/crear-tarea"> Crear nueva tarea </a>
+<form method="GET">
+    <input type="text" name="box-buscar" value"{{valor_buscado}}">
+    <input type="submit" value="buscar">
+</form>
+<table>
+    <tr>
+        <th>
+            Elementos
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for tarea in tareas %}
+    <tr>
+        <td>
+            {{tarea.titulo}}
+        </td>
+        <td>
+            <a href = "{% url 'editar-tarea' tarea.id %}">Editar</a>
+        </td>
+        <td>
+            <a href = "{% url 'eliminar-tarea' tarea.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% empty %}
+    <h3> No hay elementos en esta lista </h3>
+    {% endfor %}
+</table>
+{% endblock content %}
